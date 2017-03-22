@@ -1,5 +1,6 @@
 /**
- * Created by vince on 7/6/16.
+ * Test Code to Create Sample MapR DB in mentioned path
+ *
  */
 
 import java.io.IOException;
@@ -17,8 +18,9 @@ public class CreateTable {
   public static void main(String[] args) throws IOException {
     Configuration configuration = HBaseConfiguration.create();
     HBaseAdmin admin = new HBaseAdmin(configuration);
-    HTableDescriptor tableDescriptor = new HTableDescriptor(TableName.valueOf("/tmp/Sathish_table_new"));
-
+    HTableDescriptor tableDescriptor = new HTableDescriptor(TableName.valueOf("/tmp/Sathish_table_new"));	// To user different cluster use: <clustername>/<path here>
+    //Example: /mynewcluster/tmp/createtable
+    
     tableDescriptor.addFamily(new HColumnDescriptor("cf1"));
     tableDescriptor.addFamily(new HColumnDescriptor("cf2"));
 
